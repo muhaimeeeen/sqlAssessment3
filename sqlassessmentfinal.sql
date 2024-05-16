@@ -41,17 +41,17 @@ GROUP BY 2;
 
 -- 4. Do different schools (.edu domains) prefer different courses? (typo error, don't know where)
 -- ****************************************************************
--- SELECT email_domain,
--- SUM(CASE WHEN learn_cpp NOT IN('') THEN 1 ELSE 0 END) AS "C++",
--- SUM(CASE WHEN learn_sql NOT IN('') THEN 1 ELSE 0 END) AS "SQL"
--- SUM(CASE WHEN learn_html NOT IN('') THEN 1 ELSE 0 END) AS "HTML"
--- SUM(CASE WHEN learn_javascript NOT IN('') THEN 1 ELSE 0 END) AS "JS"
--- SUM(CASE WHEN learn_java NOT IN('') THEN 1 ELSE 0 END) AS "JAVA"
--- COUNT(email_domain) AS "NUMBER OF LEARNERS"
--- FROM progress
--- JOIN users ON progress.user_id = users.user_id
--- GROUP BY email_domain
--- ORDER BY email_domain ASC;
+SELECT email_domain,
+SUM(CASE WHEN learn_cpp NOT IN('') THEN 1 ELSE 0 END) AS "C++",
+SUM(CASE WHEN learn_sql NOT IN('') THEN 1 ELSE 0 END) AS "SQL"
+SUM(CASE WHEN learn_html NOT IN('') THEN 1 ELSE 0 END) AS "HTML"
+SUM(CASE WHEN learn_javascript NOT IN('') THEN 1 ELSE 0 END) AS "JS"
+SUM(CASE WHEN learn_java NOT IN('') THEN 1 ELSE 0 END) AS "JAVA"
+COUNT(email_domain) AS "NUMBER OF LEARNERS"
+FROM progress
+JOIN users ON progress.user_id = users.user_id
+GROUP BY email_domain
+ORDER BY email_domain ASC;
 
 
 -- ****************************************************************
